@@ -1,0 +1,37 @@
+<header class="topnav">
+    <a>Welcome <strong>{{UserDetail?.name}}</strong></a>
+    <a href="#" style="float:right" (click)="doLogout($event)">Logout</a>
+</header>
+
+<section>
+    <div class="seaarchBarSection">
+        <input type="text" placeholder="Search Planets...." name="search" id="search"
+            [(ngModel)]="searchText">
+        <button (click)="doSearch()">Search</button>
+    </div>
+    <div class="leftcolumn">
+        <div class="card" *ngIf="searchResult?.length == 0">
+            <h2>Please Search Valid Planet</h2>
+        </div>
+        <ng-container *ngIf="searchResult?.length > 0">
+            <div class="card" *ngFor="let item of searchResult">
+                <h2>{{item?.name}}</h2>
+                <h5>{{item?.created | date}}</h5>
+                <div class="fakeimg" style="height:200px;">
+                    <p>Population: {{item?.population}}</p>
+                    <p>Terrain: {{item?.terrain}}</p>
+                    <p>Climate: {{item?.climate}}</p>
+                    <p>Surface Water: {{item?.surface_water}}</p>
+                    <p>Gravity: {{item?.gravity}}</p>
+                </div>
+
+            </div>
+        </ng-container>
+
+
+    </div>
+</section>
+
+<footer class="footer">
+    <h3>Developed By - Dheeraj</h3>
+</footer>

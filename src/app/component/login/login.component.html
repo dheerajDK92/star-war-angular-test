@@ -1,0 +1,17 @@
+<div class="loginForm">
+    <form>
+        <div class="imgcontainer">
+            <img src="./../../../assets/login.png" alt="Login" title="Login" />
+        </div>
+        <div class="container">
+            <label for="uname"><strong>Username</strong></label>
+            <input [(ngModel)]="data.username" type="text" placeholder="Enter Username" name="username" />
+            <label for="uname"><strong>Password</strong></label>
+            <input [(ngModel)]="data.password" type="password" placeholder="Enter Password" name="password" />
+            <ul *ngIf="errMessage?.length > 0" class="errorContainer">
+                <li *ngFor="let item of errMessage"> {{item}}</li>
+            </ul>
+            <button type="button" (click)="doLogin()">Login</button>
+        </div>
+    </form>
+</div>
